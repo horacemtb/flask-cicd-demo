@@ -98,7 +98,7 @@ class FlaskAppTests(unittest.TestCase):
         self.assertEqual(r.json[0]['title'], 'Выполнить задание')
     
     def test_get_stats(self):
-        """Get statistics"""
+        """Get stats"""
         self.app.post('/tasks',
                      content_type='application/json',
                      data=json.dumps({'title': 'Купить молоко'}))
@@ -115,7 +115,7 @@ class FlaskAppTests(unittest.TestCase):
         self.assertEqual(r.json['pending_tasks'], 1)
     
     def test_invalid_json_post(self):
-        """Post invalid json"""
+        """Post invalid request"""
         r = self.app.post('/tasks',
                          content_type='application/json',
                          data='some data')
